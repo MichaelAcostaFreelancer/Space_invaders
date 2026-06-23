@@ -43,7 +43,7 @@ def render_index
 end
 
 
-def handler(event:, context:)
+Handler = lambda do |event, _context|
   method = (event['httpMethod'] || 'GET').upcase
   path = event['path'] || '/'
 
