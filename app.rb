@@ -5,6 +5,7 @@ class SpaceInvadersApp < Sinatra::Base
   set :root, __dir__
   set :public_folder, File.expand_path('public', __dir__)
   set :views, File.expand_path('views', __dir__)
+  set :protection, except: [:host_authorization]
 
   get '/' do
     erb :index
