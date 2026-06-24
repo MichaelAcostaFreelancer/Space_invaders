@@ -2,5 +2,12 @@ services:
   - type: web
     name: space-invaders
     env: ruby
+    plan: free
+    region: oregon
     buildCommand: bundle install
-    startCommand: bundle exec ruby app.rb -p $PORT -o 0.0.0.0
+    startCommand: bundle exec puma -b tcp://0.0.0.0:$PORT config.ru
+    envVars:
+      - key: RACK_ENV
+        value: production
+      - key: RUBY_VERSION
+        value: 3.3.0

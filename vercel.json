@@ -2,14 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/index.rb",
-      "use": "@vercel/ruby"
+      "src": "public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/health",
+      "dest": "/api/health.rb"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/api/index.rb"
+      "dest": "/public/$1"
     }
   ]
 }
