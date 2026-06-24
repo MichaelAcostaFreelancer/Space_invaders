@@ -1,10 +1,8 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "api/index.rb",
-      "use": "@vercel/ruby"
-    }
+    { "src": "api/index.rb", "use": "@vercel/ruby" },
+    { "src": "public/**", "use": "@vercel/static" }
   ],
   "routes": [
     {
@@ -12,16 +10,12 @@
       "dest": "/api/index.rb"
     },
     {
-      "src": "/(.*\\.(js|css|png|jpg|gif|ico|svg|mp3|wav|ogg|woff|woff2|ttf))",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/(css|js|images|sounds|assets|fonts)/(.*)",
-      "dest": "/public/$1/$2"
+      "src": "/",
+      "dest": "/api/index.rb"
     },
     {
       "src": "/(.*)",
-      "dest": "/api/index.rb"
+      "dest": "/public/$1"
     }
   ]
 }
