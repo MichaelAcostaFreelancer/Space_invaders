@@ -2,18 +2,26 @@
   "version": 2,
   "builds": [
     {
-      "src": "public/**",
-      "use": "@vercel/static"
+      "src": "api/index.rb",
+      "use": "@vercel/ruby"
     }
   ],
   "routes": [
     {
       "src": "/health",
-      "dest": "/api/health.rb"
+      "dest": "/api/index.rb"
+    },
+    {
+      "src": "/(.*\\.(js|css|png|jpg|gif|ico|svg|mp3|wav|ogg|woff|woff2|ttf))",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(css|js|images|sounds|assets|fonts)/(.*)",
+      "dest": "/public/$1/$2"
     },
     {
       "src": "/(.*)",
-      "dest": "/public/$1"
+      "dest": "/api/index.rb"
     }
   ]
 }
