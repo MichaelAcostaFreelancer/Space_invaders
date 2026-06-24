@@ -1,12 +1,15 @@
 {
   "version": 2,
   "builds": [
-    { "src": "index.html", "use": "@vercel/static" }
+    {
+      "src": "api/index.rb",
+      "use": "@vercel/ruby"
+    }
   ],
   "routes": [
-    { "src": "/css/(.*)", "dest": "/css/$1" },
-    { "src": "/js/(.*)", "dest": "/js/$1" },
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/(.*)", "dest": "api/index.rb" }
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.rb"
+    }
   ]
 }

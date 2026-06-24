@@ -61,7 +61,7 @@ Handler = lambda do |event, _context|
     }
   end
 
-  if path.start_with?('/css/') || path.start_with?('/js/') || path.start_with?('/assets/') || path.start_with?('/audio/') || path.start_with?('/sprites/') || path.start_with?('/ui/')
+  if path.start_with?('/css/') || path.start_with?('/js/') || path.start_with?('/assets/') 
     status, headers, body = serve_static(path)
     return {
       statusCode: status,
