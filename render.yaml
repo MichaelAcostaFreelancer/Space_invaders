@@ -1,11 +1,6 @@
 services:
   - type: web
-    name: space-invaders-remastered
+    name: space-invaders
     env: ruby
     buildCommand: bundle install
-    startCommand: bundle exec puma -C config/puma.rb
-    envVars:
-      - key: RACK_ENV
-        value: production
-      - key: WEB_CONCURRENCY
-        value: 2
+    startCommand: bundle exec ruby app.rb -p $PORT -o 0.0.0.0
