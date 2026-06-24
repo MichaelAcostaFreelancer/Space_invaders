@@ -32,7 +32,9 @@ bundle install
 ## ▶️ Ejecución local
 
 ```bash
-bundle exec ruby app.rb -p 4567
+bundle exec puma -b tcp://0.0.0.0:4567 config.ru
+y abre en tu navegador: http://localhost:4567/
+o ejecuta .\run.ps1 y abre: http://localhost:4567/
 ```
 
 ## 🌐 Deploy en Render
